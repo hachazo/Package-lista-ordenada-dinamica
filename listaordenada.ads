@@ -33,3 +33,8 @@ generic
    
    end listaordenada;
    
+-- function Menor(X, Y: Emedico) return Boolean;
+-- function Mayor(X, Y: Emedico) return Boolean;
+-- package listainc is new listaordenada(Emedico,menor,mayor);
+-- use listainc
+-- Lista:Nodolista;
