@@ -4,7 +4,7 @@ generic
    
    with function "<" (X, Y: Tipoelemento) return Boolean;
    with function ">" (X, Y: Tipoelemento) return Boolean;
-   
+   with function "=" (X, Y: Tipoelemento) return boolean;
    package Listaordenada is
    
       type Nodolista is private;
@@ -37,4 +37,4 @@ generic
 -- function Mayor(X, Y: Emedico) return Boolean;
 -- package listainc is new listaordenada(Emedico,menor,mayor);
 -- use listainc
--- Lista:Nodolista;
+-- Lista:Nodolista; 
