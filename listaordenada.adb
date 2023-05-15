@@ -2,12 +2,11 @@ with Ada.Unchecked_Deallocation;
 
 package body Listaordenada is
    
-   procedure Free is new Ada.Unchecked_Deallocation(Tiponodo,nodolista);
+   procedure Free is new Ada.Unchecked_Deallocation(Tiponodo,Tipolista);
    
-   -- Insertar elemento
-   procedure Insertar(Lista: in out nodolista; Elemento: in Tipoelemento) is
-      Nuevonodo:nodolista:= new Tiponodo'(Elemento,null);
-      Ptr, Ant: nodolista;
+   procedure Insertar(Lista: in out Tipolista; Elemento: in Telemento) is
+      Nuevonodo:Tipolista:= new Tiponodo'(Elemento,null);
+      Ptr, Ant: Tipolista;
       Lugarencontrado:Boolean;
    begin
       if Vacia(Lista) then 
@@ -34,10 +33,9 @@ package body Listaordenada is
    
 
    
-   -- Suprimir elemento
-   procedure Suprimir (Lista: in out nodolista; Elemento: in Tipoelemento) is
-      Actual:nodolista:=Lista;
-      Ant: nodolista:=null;
+   procedure Suprimir (Lista: in out Tipolista; Elemento: in Telemento) is
+      Actual:Tipolista:=Lista;
+      Ant: Tipolista:=null;
    begin      
       while Actual/=null and Actual.Info<Elemento loop
          Ant:=Actual;
@@ -52,9 +50,8 @@ package body Listaordenada is
    end Suprimir;
    
         
-   -- Limpiar elemento
-   procedure Limpiar(Lista: in out nodolista) is
-      Temp:nodolista:=Lista;     
+   procedure Limpiar(Lista: in out Tipolista) is
+      Temp:Tipolista:=Lista;     
    begin
       while Lista/=null loop
          Temp:=Lista;
@@ -64,8 +61,8 @@ package body Listaordenada is
    end Limpiar;
    
 
-   
-   function Info(Lista: in nodolista) return Tipoelemento is      
+
+   function Info(Lista: in Tipolista) return Telemento is      
    begin
       if Lista/=null then return Lista.Info;
       else raise Listavacia;
@@ -74,9 +71,9 @@ package body Listaordenada is
    
 
    
-   -- chequea si esta el elemento
-   function Esta(Lista:nodolista; Elemento:Tipoelemento) return Boolean is
-      Ptr: nodolista:=Lista;
+
+   function Esta(Lista:Tipolista; Elemento:Telemento) return Boolean is
+      Ptr: Tipolista:=Lista;
    begin
       if Vacia(Lista) then
          return False;
@@ -91,13 +88,13 @@ package body Listaordenada is
    
 
    
-   function Vacia(Lista: in nodolista) return Boolean is
+   function Vacia(Lista: in Tipolista) return Boolean is
    begin
       return Lista=null;
    end Vacia;
    
 
-   function Sig(Lista: nodolista) return nodolista is      
+   function Sig(Lista: Tipolista) return Tipolista is      
    begin
       if Vacia(Lista) then
          raise Listavacia;         
@@ -107,3 +104,7 @@ package body Listaordenada is
    end Sig;
         
 end Listaordenada;
+   
+   
+
+
